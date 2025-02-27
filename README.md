@@ -17,7 +17,7 @@ Chaque machine :
 - A déjà eu une session d'ouverte avec les comptes du domaine **User1** et **User2**  
 
 ### VM Serveur  
-- Les rôles **AD-DS** et **DNS** sont installés 
+- 1️⃣. Les rôles **AD-DS** et **DNS** sont installés 
     - **Get-WindowsFeature -Name DNS** :Tapez la commande suivante pour vérifier si le rôle DNS est installé
     - **Get-ADForest**: pour afficher les informations relatives à la forêt.
     - **Get-ADDomaineController**: pour afficher les informations relatives au role contrôleur de domaine.
@@ -25,7 +25,7 @@ Chaque machine :
 ![Test dns ad](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/testAD.png)
 ![Test forest](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/RoleController.png)
 
-- Un domaine **ranka.fr** est installé  
+- 2️⃣. Un domaine **ranka.fr** est installé  
 - Les **OU (Unités Organisationnelles) suivantes** sont créées à la racine du domaine :  
   - **RankaSecurite**  
   - **RankaOrdinateurs**  
@@ -50,28 +50,50 @@ Chaque machine :
 
 ![ou](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/ou.png)
 
-
-### Groupes créés dans l’OU *LabSecurite* :  
+### 3️⃣. Groupes créés dans l’OU *RankaSecurite* :  
 - **GrpComputers7Zip**  
 - **GrpComputersFirefox**  
 - **GrpUsersChrome**  
 - **GrpUsersWallpaper-Green**  
 - **GrpUsersWindowsRestrictions**  
 
-### Utilisateurs créés dans l’OU *LabUtilisateurs* :  
+- Ouvrir Active Directory Users and Computers :
+- Allez dans le menu Démarrer, tapez Active Directory Users and Computers, et ouvrez-le.
+**Accédez à l'OU RankaSecurite :
+
+- Dans le volet de gauche, trouvez votre domaine ranka.fr, puis ouvrez l'OU RankaSecurite.
+Créer un groupe :
+
+- Faites un clic droit sur l'OU RankaSecurite, puis choisissez Nouveau > Groupe.
+Dans la fenêtre qui apparaît, donnez un nom au groupe (par exemple, GrpComputers7Zip).
+Cliquez sur OK pour créer le groupe.
+Répétez l'opération pour les autres groupes :
+
+GrpComputersFirefox
+GrpUsersChrome
+GrpUsersWallpaper-Green
+GrpUsersWindowsRestrictions
+
+#### Créer le groupe GrpComputers7Zip dans l'OU RankaSecurite via powershell
+    ```bash
+    New-ADGroup -Name "GrpComputers7Zip" -Path "OU=RankaSecurite,DC=ranka,DC=fr" -GroupScope Global -PassThru
+![groupeSec](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/groupeSec.png)
+
+
+### 4️⃣. Utilisateurs créés dans l’OU *RankaUtilisateurs* :  
 - **User1** → Membre du groupe **GrpUsersChrome**  
 - **User2** → Membre des groupes **GrpUsersWindowsRestrictions** et **GrpUsersWallpaper-Green**  
 
-### Objets ordinateurs dans l’OU *LabOrdinateurs* :  
+### 5️⃣. Objets ordinateurs dans l’OU *RankaOrdinateurs* :  
 - **CLIENT1** → Membre du groupe **GrpComputers7Zip**  
 - **CLIENT2** → Membre du groupe **GrpComputersFirefox**  
 
-### Partage de fichiers  
+### 6️⃣. Partage de fichiers  
 - Un dossier partagé **Ressources** est créé à la racine du système de fichiers  
 - Ce dossier est partagé sur le réseau sous le même nom **Ressources**  
 - Il est accessible par le groupe **Everyone** avec les permissions **Read**  
 
-# Détails de la configuration des VM  
+## Détails de la configuration des VM  
 
 | Fonction de la VM  | Serveur          | Client               |
 |--------------------|-----------------|----------------------|
