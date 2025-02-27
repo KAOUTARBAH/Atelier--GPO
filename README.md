@@ -51,11 +51,11 @@ Chaque machine :
 ![ou](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/ou.png)
 
 ### 3️⃣. Groupes créés dans l’OU *RankaSecurite* :  
-- **GrpComputers7Zip**  
-- **GrpComputersFirefox**  
-- **GrpUsersChrome**  
-- **GrpUsersWallpaper-Green**  
-- **GrpUsersWindowsRestrictions**  
+    - **GrpComputers7Zip**  
+    - **GrpComputersFirefox**  
+    - **GrpUsersChrome**  
+    - **GrpUsersWallpaper-Green**  
+    - **GrpUsersWindowsRestrictions**  
 
 - Ouvrir Active Directory Users and Computers :
 - Allez dans le menu Démarrer, tapez Active Directory Users and Computers, et ouvrez-le.
