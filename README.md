@@ -69,10 +69,10 @@ Dans la fenêtre qui apparaît, donnez un nom au groupe (par exemple, GrpCompute
 Cliquez sur OK pour créer le groupe.
 Répétez l'opération pour les autres groupes :
 
-GrpComputersFirefox
-GrpUsersChrome
-GrpUsersWallpaper-Green
-GrpUsersWindowsRestrictions
+    - GrpComputersFirefox
+    - GrpUsersChrome
+    - GrpUsersWallpaper-Green
+    - GrpUsersWindowsRestrictions
 
 #### Créer le groupe GrpComputers7Zip dans l'OU RankaSecurite via powershell
     ```bash
