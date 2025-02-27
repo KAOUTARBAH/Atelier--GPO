@@ -115,6 +115,30 @@ Add-ADGroupMember -Identity "GrpUsersChrome" -Members "User1"
 - **CLIENT1** → Membre du groupe **GrpComputers7Zip**  
 - **CLIENT2** → Membre du groupe **GrpComputersFirefox**  
 
+#### Accéder à l’OU RankaOrdinateurs
+1. Dans le volet de gauche, ouvrez votre domaine **ranka.fr**.
+2. Trouvez l’OU **RankaOrdinateurs** et sélectionnez-la.
+
+#### Création de ClientRank
+1. Faites un **clic droit** sur **RankaOrdinateurs** → **Nouveau → Ordinateur**.
+2. Dans le champ **Nom de l’ordinateur**, tapez **ClientRank**.
+3. Cliquez sur **OK** pour valider.
+
+#### Création de ClientRank2
+1. Répétez les étapes ci-dessus en remplaçant **ClientRank** par **ClientRank2**.
+
+### Ajout des ordinateurs à leurs groupes
+#### Ajouter **CLIENT1** au groupe **GrpComputers7Zip**
+1. Dans **Active Directory Users and Computers**, ouvrez l’OU **RankaOrdinateurs**.
+2. Double-cliquez sur **ClientRank**, puis allez dans l’onglet **Membre de**.
+3. Cliquez sur **Ajouter**, tapez **GrpComputers7Zip**, puis validez avec **OK**.
+
+#### Ajouter **CLIENT2** au groupe **GrpComputersFirefox**
+1. Double-cliquez sur **ClientRank2**, puis allez dans l’onglet **Membre de**.
+2. Cliquez sur **Ajouter**, tapez **GrpComputersFirefox**, puis validez avec **OK**.
+
+![hosts](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/host.png)
+
 ### 6️⃣. Partage de fichiers  
 - Un dossier partagé **Ressources** est créé à la racine du système de fichiers  
 - Ce dossier est partagé sur le réseau sous le même nom **Ressources**  
