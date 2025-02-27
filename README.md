@@ -126,13 +126,14 @@ Add-ADGroupMember -Identity "GrpUsersChrome" -Members "User1"
 
 #### Création de ClientRank2
 1. Répétez les étapes ci-dessus en remplaçant **ClientRank** par **ClientRank2**.
+![hosts](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/host.png)
 
 ### Ajout des ordinateurs à leurs groupes
 #### Ajouter **CLIENT1** au groupe **GrpComputers7Zip**
 1. Dans **Active Directory Users and Computers**, ouvrez l’OU **RankaOrdinateurs**.
 2. Double-cliquez sur **ClientRank**, puis allez dans l’onglet **Membre de**.
 3. Cliquez sur **Ajouter**, tapez **GrpComputers7Zip**, puis validez avec **OK**.
-![hosts](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/host.png)
+
 
 #### Ajouter **CLIENT2** au groupe **GrpComputersFirefox**
 1. Double-cliquez sur **ClientRank2**, puis allez dans l’onglet **Membre de**.
