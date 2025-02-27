@@ -13,12 +13,19 @@ Chaque VM doit avoir **une carte réseau** en mode **Réseau interne** avec le m
 
 ### VM Clients  
 Chaque machine :  
-- Est sur le domaine **lab.lan**  
+- Est sur le domaine **ranka.fr**  
 - A déjà eu une session d'ouverte avec les comptes du domaine **User1** et **User2**  
 
 ### VM Serveur  
-- Les rôles **AD-DS** et **DNS** sont installés  
-- Un domaine **lab.lan** est installé  
+- Les rôles **AD-DS** et **DNS** sont installés 
+    - **Get-WindowsFeature -Name DNS** :Tapez la commande suivante pour vérifier si le rôle DNS est installé
+    - **Get-ADForest**: pour afficher les informations relatives à la forêt.
+    - **Get-ADDomaineController**: pour afficher les informations relatives au role contrôleur de domaine.
+    
+![Test dns ad](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/imagesVPN/testAD.png)
+![Test dns ad](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/imagesVPN/RoleController.png)
+
+- Un domaine **ranka.fr** est installé  
 - Les **OU suivantes** sont créées à la racine du domaine :  
   - **LabSecurite**  
   - **LabOrdinateurs**  
@@ -61,3 +68,13 @@ Chaque machine :
 | **Utilisateur local** | Administrator | Wilder          |
 | **Firewall**      | Désactivé        | Désactivé             |
 
+
+## Faut-il activer la délégation DNS ?
+
+### 🔹 OUI, si :
+- Vous utilisez un serveur DNS distinct pour gérer votre domaine (exemple : un autre serveur DNS gère la zone parent).
+- Vous avez une infrastructure avec plusieurs domaines et souhaitez déléguer la gestion DNS à un autre serveur.
+
+### 🔹 NON (Ignorer l’avertissement), si :
+- Votre serveur Active Directory est aussi votre serveur DNS principal (cas le plus courant).
+- Vous installez AD dans un nouveau domaine sans sous-domaines.
