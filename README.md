@@ -23,13 +23,33 @@ Chaque machine :
     - **Get-ADDomaineController**: pour afficher les informations relatives au role contrôleur de domaine.
     
 ![Test dns ad](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/testAD.png)
-![Test dns ad](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/RoleController.png)
+![Test forest](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/RoleController.png)
 
 - Un domaine **ranka.fr** est installé  
-- Les **OU suivantes** sont créées à la racine du domaine :  
-  - **LabSecurite**  
-  - **LabOrdinateurs**  
-  - **LabUtilisateurs**  
+- Les **OU (Unités Organisationnelles) suivantes** sont créées à la racine du domaine :  
+  - **RankaSecurite**  
+  - **RankaOrdinateurs**  
+  - **RankaUtilisateurs**  
+
+#### Accéder à la racine du domaine :
+- Dans l'outil, trouvez votre domaine **ranka.fr** dans la liste à gauche.
+
+#### Créer une nouvelle OU :
+- Faites un clic droit sur le domaine **ranka.fr** et sélectionnez **Nouveau > Unité organisationnelle**.
+- Dans la fenêtre qui apparaît, donnez un nom à l'OU. Par exemple, pour créer l'OU **RankaSecurite**, tapez **"RankaSecurite"**.
+- Cliquez sur **OK** pour valider.
+
+#### Répétez cette procédure pour les autres OU :
+
+- **RankaOrdinateurs**
+- **RankaUtilisateurs**
+
+# Créer l'OU RankaUtilisateurs via PowerShell
+    ```bash
+    New-ADOrganizationalUnit -Name "RankaUtilisateurs" -Path "DC=ranka,DC=fr"
+
+![ou](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/ou.png)
+
 
 ### Groupes créés dans l’OU *LabSecurite* :  
 - **GrpComputers7Zip**  
