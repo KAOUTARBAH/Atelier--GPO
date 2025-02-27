@@ -84,6 +84,33 @@ Répétez l'opération pour les autres groupes :
 - **User1** → Membre du groupe **GrpUsersChrome**  
 - **User2** → Membre des groupes **GrpUsersWindowsRestrictions** et **GrpUsersWallpaper-Green**  
 
+1. Ouvrez **Active Directory Users and Computers**.
+2. Accédez à l’OU **RankaUtilisateurs**.
+3. Faites un **clic droit** dans l’OU, puis sélectionnez **Nouveau → Utilisateur**.
+4. Remplissez les champs suivants :
+   - **Nom d’utilisateur** : `User1`
+   - **Mot de passe** : définissez un mot de passe sécurisé.
+   - **Option** : Cochez **L’utilisateur doit changer de mot de passe à la prochaine ouverture de session** (si nécessaire).
+5. Cliquez sur **Suivant**, puis **Terminer**.
+6. Répétez ces étapes pour créer `User2`.
+
+#### 1. Création de User1
+New-ADUser -Name "User1" -SamAccountName "User2" -UserPrincipalName "User1@ranka.fr" -Path "OU=RankaUtilisateurs,DC=ranka,DC=fr" -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) -Enabled $true
+
+###" 2. Ajout des utilisateurs aux groupes via powershell
+1. Dans **Active Directory Users and Computers**, ouvrez l'OU **RankaUtilisateurs**.
+2. Faites un **double-clic** sur `User1`, puis allez dans l'onglet **Membre de**.
+3. Cliquez sur **Ajouter** et tapez **GrpUsersChrome**, puis validez.
+4. Faites de même pour `User2`, mais ajoutez-le aux groupes suivants :
+   - `GrpUsersWindowsRestrictions`
+   - `GrpUsersWallpaper-Green`
+5. Cliquez sur **OK** pour enregistrer.
+
+### Ajouter User1 au groupe GrpUsersChrome via powershell
+Add-ADGroupMember -Identity "GrpUsersChrome" -Members "User1"
+
+![users](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/users.png)
+
 ### 5️⃣. Objets ordinateurs dans l’OU *RankaOrdinateurs* :  
 - **CLIENT1** → Membre du groupe **GrpComputers7Zip**  
 - **CLIENT2** → Membre du groupe **GrpComputersFirefox**  
