@@ -126,6 +126,22 @@ Add-ADGroupMember -Identity "GrpUsersChrome" -Members "User1"
 
 #### Création de ClientRank2
 1. Répétez les étapes ci-dessus en remplaçant **ClientRank** par **ClientRank2**.
+
+# Création de CLIENT1 dans l'OU RankaOrdinateurs
+New-ADComputer -Name "CLIENT1" -Path "OU=RankaOrdinateurs,DC=ranka,DC=fr" -Enabled $true
+
+# Création de ClientRanka2 dans l'OU RankaOrdinateurs
+    ```bash
+    New-ADComputer -Name "CLIENT2" -Path "OU=RankaOrdinateurs,DC=ranka,DC=fr" -Enabled $true
+
+# Ajouter ClientRanka au groupe GrpComputers7Zip
+    ```bash
+    Add-ADGroupMember -Identity "GrpComputers7Zip" -Members "ClientRanka$"
+
+# Ajouter ClientRanka2 au groupe GrpComputersFirefox
+    ```bash
+    Add-ADGroupMember -Identity "GrpComputersFirefox" -Members "ClientRanka2$"
+
 ![hosts](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/host.png)
 
 ### Ajout des ordinateurs à leurs groupes
@@ -139,6 +155,16 @@ Add-ADGroupMember -Identity "GrpUsersChrome" -Members "User1"
 1. Double-cliquez sur **ClientRank2**, puis allez dans l’onglet **Membre de**.
 2. Cliquez sur **Ajouter**, tapez **GrpComputersFirefox**, puis validez avec **OK**.
 ![groupe](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/groupeclt2.png)
+
+- Vérifier le client  appartient au quelle groupe 
+    ```bash
+    # Vérifier que CLIENT1 appartient au groupe GrpComputers7Zip
+    Get-ADComputer "CLIENT1" -Property MemberOf
+
+    # Vérifier que CLIENT2 appartient au groupe GrpComputersFirefox
+    Get-ADComputer "CLIENT2" -Property MemberOf
+
+![testgroupe](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/testgroup.png)
 
 ### 6️⃣. Partage de fichiers  
 - Un dossier partagé **Ressources** est créé à la racine du système de fichiers  
