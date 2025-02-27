@@ -22,7 +22,7 @@ Chaque machine :
     - **Get-ADForest**: pour afficher les informations relatives à la forêt.
     - **Get-ADDomaineController**: pour afficher les informations relatives au role contrôleur de domaine.
     
-![Test dns ad](https://github.com/KAOUTARBAH/Atelier--GPO/tree/main/images/testAD.png)
+![Test dns ad](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/testAD.png)
 ![Test dns ad](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/RoleController.png)
 
 - Un domaine **ranka.fr** est installé  
