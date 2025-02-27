@@ -97,7 +97,7 @@ Répétez l'opération pour les autres groupes :
 #### 1. Création de User1
 New-ADUser -Name "User1" -SamAccountName "User2" -UserPrincipalName "User1@ranka.fr" -Path "OU=RankaUtilisateurs,DC=ranka,DC=fr" -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) -Enabled $true
 
-###" 2. Ajout des utilisateurs aux groupes via powershell
+### 2. Ajout des utilisateurs aux groupes via powershell
 1. Dans **Active Directory Users and Computers**, ouvrez l'OU **RankaUtilisateurs**.
 2. Faites un **double-clic** sur `User1`, puis allez dans l'onglet **Membre de**.
 3. Cliquez sur **Ajouter** et tapez **GrpUsersChrome**, puis validez.
