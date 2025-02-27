@@ -132,12 +132,12 @@ Add-ADGroupMember -Identity "GrpUsersChrome" -Members "User1"
 1. Dans **Active Directory Users and Computers**, ouvrez l’OU **RankaOrdinateurs**.
 2. Double-cliquez sur **ClientRank**, puis allez dans l’onglet **Membre de**.
 3. Cliquez sur **Ajouter**, tapez **GrpComputers7Zip**, puis validez avec **OK**.
+![hosts](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/host.png)
 
 #### Ajouter **CLIENT2** au groupe **GrpComputersFirefox**
 1. Double-cliquez sur **ClientRank2**, puis allez dans l’onglet **Membre de**.
 2. Cliquez sur **Ajouter**, tapez **GrpComputersFirefox**, puis validez avec **OK**.
-
-![hosts](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/host.png)
+![groupe](https://github.com/KAOUTARBAH/Atelier--GPO/blob/main/images/groupeclt2.png)
 
 ### 6️⃣. Partage de fichiers  
 - Un dossier partagé **Ressources** est créé à la racine du système de fichiers  
