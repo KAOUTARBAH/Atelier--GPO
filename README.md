@@ -171,6 +171,37 @@ New-ADComputer -Name "CLIENT1" -Path "OU=RankaOrdinateurs,DC=ranka,DC=fr" -Enabl
 - Ce dossier est partagé sur le réseau sous le même nom **Ressources**  
 - Il est accessible par le groupe **Everyone** avec les permissions **Read**  
 
+#### Partage d'un dossier sous Windows
+
+#### 1. Créer le dossier sur la racine du système de fichiers  
+- Ouvrir l'Explorateur de fichiers.  
+- Aller à la racine du disque, par exemple `C:\` ou `D:\`.  
+- Créer un dossier nommé **Ressources**.  
+
+#### 2. Configurer le partage du dossier  
+1. Clic droit sur le dossier **Ressources** > **Propriétés**.  
+2. Aller à l'onglet **Partage**.  
+3. Cliquer sur **Partage avancé**.  
+4. Cocher **Partager ce dossier** et s’assurer que le **Nom du partage** est bien `Ressources`.  
+5. Cliquer sur **Autorisations**, puis :  
+   - Sélectionner **Everyone**.  
+   - Cocher uniquement **Lecture**.  
+   - Appliquer et valider.  
+
+#### 3. Configurer les permissions NTFS  
+1. Aller dans l’onglet **Sécurité** des **Propriétés** du dossier.  
+2. Cliquer sur **Modifier** > **Ajouter**.  
+3. Entrer `Everyone` et cliquer sur **OK**.  
+4. Sélectionner **Everyone** et attribuer uniquement **Lecture & exécution**.  
+5. Appliquer et valider.  
+
+#### 4. Tester l'accès réseau  
+Depuis un autre ordinateur du réseau, ouvrir **Exécuter** (`Win + R`) et entrer :  
+    ```bash
+    \\NomDuServeur\Ressources
+
+
+
 ## Détails de la configuration des VM  
 
 | Fonction de la VM  | Serveur          | Client               |
